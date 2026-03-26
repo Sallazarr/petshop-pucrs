@@ -1,0 +1,239 @@
+:root {
+  --color-cream: #fdf6ea;
+  --color-sand: #f4e6ce;
+  --color-ink: #17212b;
+  --color-brown: #6b3f1d;
+  --color-gold: #f2b138;
+  --color-teal: #1c6b72;
+  --color-white: #ffffff;
+  --shadow-soft: 0 20px 45px rgba(23, 33, 43, 0.12);
+  --radius-lg: 24px;
+}
+
+body {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--color-ink);
+  background: linear-gradient(180deg, #fffaf2 0%, #fff 24%, #fff8ef 100%);
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 1rem;
+  z-index: 1100;
+  background: var(--color-ink);
+  color: var(--color-white);
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 12px 12px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.hero-section {
+  color: var(--color-white);
+  background:
+    radial-gradient(circle at top left, rgba(242, 177, 56, 0.25), transparent 28%),
+    linear-gradient(135deg, #0f3c43 0%, #15545d 45%, #1d6f77 100%);
+}
+
+.navbar {
+  padding-top: 1rem;
+}
+
+.hero-badge,
+.section-kicker {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.hero-badge {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.section-kicker {
+  background: rgba(28, 107, 114, 0.12);
+  color: var(--color-teal);
+}
+
+.hero-info {
+  border-left: 4px solid var(--color-gold);
+  padding-left: 1rem;
+}
+
+.hero-carousel-image {
+  height: 470px;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.carousel-caption {
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 3rem 2rem 2rem;
+}
+
+.info-card,
+.service-card,
+.schedule-panel,
+.booking-form {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.info-card {
+  padding: 1.75rem;
+}
+
+.section-heading {
+  max-width: 680px;
+}
+
+.section-heading h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
+  font-weight: 700;
+}
+
+.product-card,
+.service-card {
+  border: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.product-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.section-sand {
+  background:
+    linear-gradient(180deg, rgba(244, 230, 206, 0.7), rgba(253, 246, 234, 0.9)),
+    var(--color-sand);
+}
+
+.service-card {
+  padding: 2rem;
+}
+
+.service-price {
+  color: var(--color-brown);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.service-card ul {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.schedule-panel {
+  padding: 1.75rem;
+  border-top: 6px solid var(--color-gold);
+}
+
+.booking-form {
+  padding: 2rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+.btn:focus,
+.nav-link:focus,
+.footer-link:focus,
+.form-check-input:focus {
+  outline: 3px solid rgba(242, 177, 56, 0.45);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.site-footer {
+  color: var(--color-white);
+  background: #15262e;
+}
+
+.footer-link {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+body.high-contrast {
+  background: #000;
+  color: #fff;
+}
+
+body.high-contrast .hero-section,
+body.high-contrast .section-sand,
+body.high-contrast .site-footer,
+body.high-contrast .info-card,
+body.high-contrast .service-card,
+body.high-contrast .schedule-panel,
+body.high-contrast .booking-form,
+body.high-contrast .product-card,
+body.high-contrast .card-body,
+body.high-contrast .card-footer {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast .section-kicker,
+body.high-contrast .hero-badge,
+body.high-contrast .btn-warning,
+body.high-contrast .badge {
+  background: #ff0 !important;
+  color: #000 !important;
+  border-color: #ff0 !important;
+}
+
+body.high-contrast .form-control,
+body.high-contrast .form-select {
+  background: #111;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.high-contrast a,
+body.high-contrast .nav-link,
+body.high-contrast .footer-link {
+  color: #ff0 !important;
+}
+
+@media (max-width: 991px) {
+  .hero-carousel-image {
+    height: 340px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-carousel-image {
+    height: 280px;
+  }
+
+  .carousel-caption {
+    padding: 2rem 1rem 1.25rem;
+  }
+
+  .booking-form,
+  .schedule-panel,
+  .service-card,
+  .info-card {
+    border-radius: 18px;
+  }
+}

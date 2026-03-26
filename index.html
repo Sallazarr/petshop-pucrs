@@ -1,127 +1,634 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>PetShop Salazar - Unidade Porto Alegre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema web do PetShop Salazar com produtos, servicos e agendamento de banho, tosa, tele-busca e entrega no local."
+    />
+    <title>PetShop Salazar | Banho, Tosa e Agendamento</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>PetShop Salazar</h1>
-      <p>O melhor cuidado para o seu melhor amigo em Porto Alegre.</p>
-      <nav>
-        <ul>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteudo principal</a>
+
+    <header class="hero-section">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#inicio">PetShop Salazar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuPrincipal"
+            aria-controls="menuPrincipal"
+            aria-expanded="false"
+            aria-label="Abrir menu de navegacao"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+              <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+              <li class="nav-item"><a class="nav-link" href="#servicos">Servicos</a></li>
+              <li class="nav-item"><a class="nav-link" href="#agendamento">Agendamento</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+              <li class="nav-item">
+                <button
+                  id="alternar-contraste"
+                  class="btn btn-outline-light btn-sm ms-lg-3"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  Alto contraste
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
+
+      <section id="inicio" class="container py-5">
+        <div class="row align-items-center g-4 py-lg-5">
+          <div class="col-lg-6">
+            <span class="hero-badge">Carinho, seguranca e praticidade</span>
+            <h1 class="display-4 fw-bold mt-3">Cuidado completo para o seu pet em um so lugar</h1>
+            <p class="lead mt-3">
+              Banho, tosa, produtos selecionados e agendamento com tele-busca ou entrega
+              no local para deixar a rotina da familia mais facil.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a class="btn btn-warning btn-lg" href="#agendamento">Agendar atendimento</a>
+              <a class="btn btn-outline-light btn-lg" href="#produtos">Ver produtos</a>
+            </div>
+            <div class="hero-info mt-4" aria-live="polite">
+              <p class="mb-1">
+                <strong>Status de atendimento:</strong>
+                <span id="status-loja">Carregando horario...</span>
+              </p>
+              <p class="mb-0">
+                <strong>Horario atual:</strong>
+                <span id="horario-atual">--:--</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div
+              id="carrosselPetshop"
+              class="carousel slide shadow-lg"
+              data-bs-ride="carousel"
+              aria-label="Galeria de imagens do petshop"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carrosselPetshop"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carrosselPetshop"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carrosselPetshop"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner rounded-4">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1200&q=80"
+                    class="d-block w-100 hero-carousel-image"
+                    alt="Profissional secando um cachorro pequeno apos o banho em ambiente de petshop"
+                  />
+                  <div class="carousel-caption text-start">
+                    <h2>Banho com cuidado profissional</h2>
+                    <p>Higiene completa com produtos adequados para cada tipo de pele e pelagem.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80"
+                    class="d-block w-100 hero-carousel-image"
+                    alt="Cachorro olhando para a camera enquanto recebe carinho em um ambiente claro"
+                  />
+                  <div class="carousel-caption text-start">
+                    <h2>Tosa com conforto e seguranca</h2>
+                    <p>Equipe preparada para deixar seu pet bonito, limpo e tranquilo.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80"
+                    class="d-block w-100 hero-carousel-image"
+                    alt="Cachorro sentado em area externa aguardando atendimento do servico de tele-busca"
+                  />
+                  <div class="carousel-caption text-start">
+                    <h2>Tele-busca e entrega agendadas</h2>
+                    <p>Mais comodidade para a familia com retirada e devolucao programadas.</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carrosselPetshop"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carrosselPetshop"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Proximo</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
 
-    <hr />
-
-    <main>
-      <section id="produtos">
-        <h2>Nossos Produtos</h2>
-
-        <h3>Categoria: Acessórios</h3>
-        <div>
-          <img
-            src="https://images.tcdn.com.br/img/img_prod/1100448/guia_retratil_flexi_g_new_classic_fita_5m_para_caes_de_ate_50kg_2557_1_691cd4cd9934d55f16b0e1e5c4925c3a.jpg"
-            alt="Foto de uma Guia Retrátil"
-            width="150"
-          />
-          <p><strong>Guia Retrátil 5m</strong></p>
-          <p>Descrição: Guia resistente para cães de médio porte.</p>
-          <p>Valor: R$ 85,00</p>
-        </div>
-        <div>
-          <img
-            src="https://cobasi.vteximg.com.br/arquivos/ids/1052234-368-368/Cama-Veneza-Cinza-01.png?v=638887229479570000"
-            alt="Foto de uma Cama Pet"
-            width="150"
-          />
-          <p><strong>Cama Conforto G</strong></p>
-          <p>Descrição: Cama acolchoada lavável.</p>
-          <p>Valor: R$ 120,00</p>
-        </div>
-
-        <h3>Categoria: Rações não perecíveis</h3>
-        <div>
-          <img
-            src="https://images.tcdn.com.br/img/img_prod/981706/racao_premier_formula_caes_adultos_racas_pequenas_15kg_487_1_b29071093ee3cc6a3a1a2482f309f841.jpg"
-            alt="Saco de Ração Premium"
-            width="150"
-          />
-          <p><strong>Ração Premium 15kg</strong></p>
-          <p>Descrição: Ração completa para cães adultos.</p>
-          <p>Valor: R$ 210,00</p>
-        </div>
-        <div>
-          <img
-            src="https://cobasi.vteximg.com.br/arquivos/ids/1051458/Golden-Special-Castrados-Frango-Carne-3kg-Frente.png?v=638336800065600000"
-            alt="Saco de Ração Gatos"
-            width="150"
-          />
-          <p><strong>Ração Gatos Castrados 3kg</strong></p>
-          <p>Descrição: Controle de peso e saúde urinária.</p>
-          <p>Valor: R$ 95,00</p>
-        </div>
-
-        <h3>Categoria: Higiene e Limpeza</h3>
-        <div>
-          <img
-            src="https://images.petz.com.br/fotos/10031181000190_1749586119265.jpg"
-            alt="Tapete Higiênico"
-            width="150"
-          />
-          <p><strong>Tapete Higiênico (30 unid)</strong></p>
-          <p>Descrição: Alta absorção e controle de odores.</p>
-          <p>Valor: R$ 65,00</p>
-        </div>
-        <div>
-          <img
-            src="https://b2b.granado.com.br/media/catalog/product/e/a/ean7896512949639_.jpg?optimize=high&fit=bounds&height=895&width=696&canvas=696:895"
-            alt="Shampoo Pet"
-            width="150"
-          />
-          <p><strong>Shampoo Neutro 500ml</strong></p>
-          <p>Descrição: Ideal para peles sensíveis.</p>
-          <p>Valor: R$ 35,00</p>
+    <main id="conteudo-principal">
+      <section class="py-5 bg-light-subtle">
+        <div class="container">
+          <div class="row g-4 text-center">
+            <div class="col-md-4">
+              <article class="info-card h-100">
+                <h2 class="h5">Atendimento completo</h2>
+                <p class="mb-0">Produtos, banho e tosa em uma unica experiencia para o tutor.</p>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="info-card h-100">
+                <h2 class="h5">Agendamento facilitado</h2>
+                <p class="mb-0">Escolha servico, data, horario e modalidade em poucos cliques.</p>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="info-card h-100">
+                <h2 class="h5">Acessibilidade reforcada</h2>
+                <p class="mb-0">Descricoes em imagens, foco visivel e modo de alto contraste.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
-      <hr />
+      <section id="produtos" class="py-5">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-kicker">Catalogo</span>
+            <h2>Nossos produtos</h2>
+            <p>Itens selecionados para conforto, nutricao e higiene do seu pet.</p>
+          </div>
 
-      <section id="servicos">
-        <h2>Nossos Serviços</h2>
-        <ul>
-          <li>
-            <strong>Banho e Tosa Simples</strong><br />
-            Descrição: Higienização completa e corte de unhas.<br />
-            Valor: R$ 70,00<br />
-            <em>Opção de tele-busca: Não disponível para este plano.</em>
-          </li>
-          <br />
-          <li>
-            <strong>Banho e Tosa VIP (Com Tele-busca)</strong><br />
-            Descrição: Banho, tosa higiênica e transporte ida e volta.<br />
-            Valor: R$ 110,00<br />
-            <em>Opção de tele-busca: Incluso no valor.</em>
-          </li>
-        </ul>
+          <div class="row g-4 mt-1">
+            <div class="col-md-6 col-xl-3">
+              <article class="card product-card h-100">
+                <img
+                  src="https://images.tcdn.com.br/img/img_prod/1100448/guia_retratil_flexi_g_new_classic_fita_5m_para_caes_de_ate_50kg_2557_1_691cd4cd9934d55f16b0e1e5c4925c3a.jpg"
+                  class="card-img-top"
+                  alt="Guia retratil preta com fita vermelha para passeios com caes de medio porte"
+                />
+                <div class="card-body">
+                  <span class="badge text-bg-warning mb-2">Acessorios</span>
+                  <h3 class="h5">Guia Retratil 5m</h3>
+                  <p class="card-text">Guia resistente e confortavel para passeios seguros.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pt-0">
+                  <strong>R$ 85,00</strong>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <article class="card product-card h-100">
+                <img
+                  src="https://cobasi.vteximg.com.br/arquivos/ids/1052234-368-368/Cama-Veneza-Cinza-01.png?v=638887229479570000"
+                  class="card-img-top"
+                  alt="Cama pet cinza acolchoada com bordas altas para descanso de caes e gatos"
+                />
+                <div class="card-body">
+                  <span class="badge text-bg-warning mb-2">Conforto</span>
+                  <h3 class="h5">Cama Conforto G</h3>
+                  <p class="card-text">Modelo macio, lavavel e ideal para pets de medio porte.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pt-0">
+                  <strong>R$ 120,00</strong>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <article class="card product-card h-100">
+                <img
+                  src="https://images.tcdn.com.br/img/img_prod/981706/racao_premier_formula_caes_adultos_racas_pequenas_15kg_487_1_b29071093ee3cc6a3a1a2482f309f841.jpg"
+                  class="card-img-top"
+                  alt="Saco de racao premium para caes adultos com embalagem branca e vermelha"
+                />
+                <div class="card-body">
+                  <span class="badge text-bg-warning mb-2">Racoes</span>
+                  <h3 class="h5">Racao Premium 15kg</h3>
+                  <p class="card-text">Nutricao equilibrada para caes adultos de pequeno porte.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pt-0">
+                  <strong>R$ 210,00</strong>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+              <article class="card product-card h-100">
+                <img
+                  src="https://images.petz.com.br/fotos/10031181000190_1749586119265.jpg"
+                  class="card-img-top"
+                  alt="Pacote de tapete higienico para caes com estampa azul na embalagem"
+                />
+                <div class="card-body">
+                  <span class="badge text-bg-warning mb-2">Higiene</span>
+                  <h3 class="h5">Tapete Higienico 30 unid</h3>
+                  <p class="card-text">Alta absorcao para manter o ambiente limpo e sem odores.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pt-0">
+                  <strong>R$ 65,00</strong>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" class="py-5 section-sand">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-kicker">Servicos</span>
+            <h2>Banho e tosa com opcoes de atendimento</h2>
+            <p>Escolha a modalidade que melhor funciona para a sua rotina.</p>
+          </div>
+
+          <div class="row g-4 mt-1">
+            <div class="col-lg-6">
+              <article class="service-card h-100">
+                <h3>Banho</h3>
+                <p class="service-price">A partir de R$ 70,00</p>
+                <p>
+                  Higienizacao completa, secagem e escovacao com foco em conforto e bem-estar.
+                </p>
+                <ul>
+                  <li>Produtos adequados para peles sensiveis</li>
+                  <li>Corte de unhas opcional</li>
+                  <li>Pode ser agendado com tele-busca ou entrega no local</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="col-lg-6">
+              <article class="service-card h-100">
+                <h3>Tosa</h3>
+                <p class="service-price">A partir de R$ 90,00</p>
+                <p>Tosa higienica ou completa, feita de acordo com o porte e a raca do pet.</p>
+                <ul>
+                  <li>Atendimento com orientacao personalizada</li>
+                  <li>Finalizacao com perfume pet</li>
+                  <li>Agendamento com data e horario definidos</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="agendamento" class="py-5">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-5">
+              <div class="section-heading">
+                <span class="section-kicker">Cadastro e agenda</span>
+                <h2>Formulario do cliente, pet e servico</h2>
+                <p>
+                  Preencha os dados abaixo para registrar o atendimento e definir como o
+                  pet sera levado ate o petshop.
+                </p>
+              </div>
+
+              <div class="schedule-panel mt-4">
+                <h3 class="h5">Resumo do agendamento</h3>
+                <p class="mb-2">
+                  <strong>Servico escolhido:</strong> <span id="resumo-servico">Nao selecionado</span>
+                </p>
+                <p class="mb-2">
+                  <strong>Metodo:</strong> <span id="resumo-metodo">Nao selecionado</span>
+                </p>
+                <p class="mb-0">
+                  <strong>Horario sugerido:</strong> <span id="mensagem-horario">Selecione uma data.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <form id="form-agendamento" class="booking-form needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <h3 class="h4">Dados do cliente</h3>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="nome-cliente" class="form-label">Nome completo</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nome-cliente"
+                      name="nomeCliente"
+                      placeholder="Digite o nome do tutor"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe o nome completo do cliente.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cpf"
+                      name="cpf"
+                      placeholder="000.000.000-00"
+                      minlength="11"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe um CPF valido para contato.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="endereco" class="form-label">Endereco</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="endereco"
+                      name="endereco"
+                      placeholder="Rua, numero e bairro"
+                      required
+                    />
+                    <div class="invalid-feedback">Preencha o endereco do cliente.</div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <span class="form-label d-block">Sexo</span>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="sexo"
+                        id="sexo-feminino"
+                        value="Feminino"
+                        required
+                      />
+                      <label class="form-check-label" for="sexo-feminino">Feminino</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="sexo"
+                        id="sexo-masculino"
+                        value="Masculino"
+                        required
+                      />
+                      <label class="form-check-label" for="sexo-masculino">Masculino</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="sexo"
+                        id="sexo-outro"
+                        value="Prefiro nao informar"
+                        required
+                      />
+                      <label class="form-check-label" for="sexo-outro">Prefiro nao informar</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="telefone"
+                      name="telefone"
+                      placeholder="(51) 99999-9999"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe um telefone para retorno.</div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="nome@email.com"
+                      required
+                    />
+                    <div class="invalid-feedback">Digite um e-mail valido.</div>
+                  </div>
+
+                  <div class="col-12 pt-3">
+                    <h3 class="h4">Dados do pet</h3>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="nome-pet" class="form-label">Nome do pet</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nome-pet"
+                      name="nomePet"
+                      placeholder="Ex.: Luna"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe o nome do pet.</div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="raca" class="form-label">Raca</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="raca"
+                      name="raca"
+                      placeholder="Ex.: Shih-tzu"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe a raca do pet.</div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="idade" class="form-label">Idade</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="idade"
+                      name="idade"
+                      min="0"
+                      max="30"
+                      placeholder="Em anos"
+                      required
+                    />
+                    <div class="invalid-feedback">Informe a idade do pet.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="servico" class="form-label">Servico desejado</label>
+                    <select class="form-select" id="servico" name="servico" required>
+                      <option value="">Selecione</option>
+                      <option value="Banho">Banho</option>
+                      <option value="Tosa">Tosa</option>
+                    </select>
+                    <div class="invalid-feedback">Escolha um servico.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="metodo" class="form-label">Metodo de agendamento</label>
+                    <select class="form-select" id="metodo" name="metodo" required>
+                      <option value="">Selecione</option>
+                      <option value="Tele-busca">Tele-busca</option>
+                      <option value="Entrega no local">Entrega no local</option>
+                    </select>
+                    <div class="invalid-feedback">Escolha a forma de atendimento.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="data-agendamento" class="form-label">Data do agendamento</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="data-agendamento"
+                      name="dataAgendamento"
+                      required
+                    />
+                    <div class="invalid-feedback">Selecione a data do atendimento.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="hora-agendamento" class="form-label">Horario</label>
+                    <input
+                      type="time"
+                      class="form-control"
+                      id="hora-agendamento"
+                      name="horaAgendamento"
+                      min="09:00"
+                      max="18:00"
+                      step="1800"
+                      required
+                    />
+                    <div class="invalid-feedback">Escolha um horario entre 09:00 e 18:00.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <span class="form-label d-block">Informacoes adicionais</span>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="Sim"
+                        id="lembrar-vacina"
+                        name="lembrarVacina"
+                      />
+                      <label class="form-check-label" for="lembrar-vacina">
+                        Receber lembrete sobre vacinas e cuidados preventivos
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="Sim"
+                        id="aceite-termos"
+                        name="aceiteTermos"
+                        required
+                      />
+                      <label class="form-check-label" for="aceite-termos">
+                        Confirmo que os dados informados estao corretos
+                      </label>
+                      <div class="invalid-feedback">E necessario confirmar os dados.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="observacoes" class="form-label">Observacoes</label>
+                    <textarea
+                      class="form-control"
+                      id="observacoes"
+                      name="observacoes"
+                      rows="4"
+                      placeholder="Descreva alergias, preferencias ou necessidades especiais do pet"
+                    ></textarea>
+                  </div>
+
+                  <div class="col-12 d-flex flex-wrap gap-3 pt-2">
+                    <button type="submit" class="btn btn-warning btn-lg">Enviar cadastro</button>
+                    <button type="reset" class="btn btn-outline-secondary btn-lg">Limpar</button>
+                  </div>
+
+                  <div class="col-12">
+                    <div
+                      id="mensagem-sucesso"
+                      class="alert alert-success d-none mb-0"
+                      role="alert"
+                      aria-live="assertive"
+                    ></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <hr />
-
-    <footer id="contato">
-      <p>&copy; 2026 - Desenvolvido por Henrique Salazar - Aluno ADS PUCRS</p>
-      <p>Contato: (51) 99999-9999 | email@petshop.com.br</p>
-      <nav>
-        <p>Links Rápidos:</p>
-        <a href="https://www.pucrs.br" target="_blank">PUCRS</a> |
-        <a href="#produtos">Topo da Página</a>
-      </nav>
+    <footer id="contato" class="site-footer py-4">
+      <div class="container">
+        <div class="row g-3 align-items-center">
+          <div class="col-md-8">
+            <h2 class="h5 mb-2">PetShop Salazar - Unidade Porto Alegre</h2>
+            <p class="mb-1">Contato: (51) 99999-9999 | atendimento@petshopsalazar.com.br</p>
+            <p class="mb-0">Rua dos Bichinhos, 150 - Porto Alegre/RS</p>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <a class="footer-link" href="#inicio">Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
     </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>
