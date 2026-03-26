@@ -23,8 +23,11 @@ Este projeto apresenta a evolucao do sistema web do PetShop Salazar para a fase 
 
 ## Estrutura dos arquivos
 - `index.html`: estrutura principal da pagina.
-- `styles.css`: estilos customizados e ajustes responsivos.
-- `script.js`: funcionalidades dinamicas e validacoes simples.
+- `css/styles.css`: estilos customizados e ajustes responsivos.
+- `js/main.js`: arquivo principal que inicializa os modulos JavaScript.
+- `js/relogio.js`: atualiza horario e status de funcionamento.
+- `js/acessibilidade.js`: controla o modo de alto contraste.
+- `js/formulario.js`: gerencia resumo, validacao e envio do formulario.
 - `README.md`: arquivo de ajuda com descricao do projeto.
 
 ## Publicacao

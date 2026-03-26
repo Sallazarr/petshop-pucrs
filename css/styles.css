@@ -28,6 +28,7 @@ body {
   transition: top 0.2s ease;
 }
 
+/* Deixa o link visivel quando a navegacao for feita pelo teclado. */
 .skip-link:focus {
   top: 0;
 }
@@ -179,6 +180,7 @@ body.high-contrast {
   color: #fff;
 }
 
+/* Modo de alto contraste para melhorar a leitura de quem precisa. */
 body.high-contrast .hero-section,
 body.high-contrast .section-sand,
 body.high-contrast .site-footer,
