@@ -24,7 +24,7 @@ Este sistema web apresenta a interface inicial de um PetShop, contendo:
 
 # Projeto PetShop Salazar - Fase 2 (Final)
 
-**Disciplina:** Fundamentos de Sistemas Web - PUCRS [cite: 7]
+**Disciplina:** Fundamentos de Sistemas Web - PUCRS 
 
 ## Funcionalidades
 
