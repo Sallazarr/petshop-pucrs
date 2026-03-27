@@ -22,9 +22,9 @@ Este sistema web apresenta a interface inicial de um PetShop, contendo:
 
 - Hospedagem: GitHub Pages.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------# Projeto PetShop Salazar - Fase 2 (Final)
+# Projeto PetShop Salazar - Fase 2 (Final)
 
-[cite_start]**Disciplina:** Fundamentos de Sistemas Web - PUCRS [cite: 7]
+**Disciplina:** Fundamentos de Sistemas Web - PUCRS [cite: 7]
 
 ## Funcionalidades
 
